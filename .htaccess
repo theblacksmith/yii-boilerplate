@@ -1,0 +1,28 @@
+Options +FollowSymLinks
+
+IndexIgnore */*
+
+RewriteEngine on
+
+# Use the line below if yout app runs on the root of a domain, eg: http://www.myapp.com.
+#RewriteBase /
+
+# Use the line below if your app runs inside a folder, eg: http://www.example.com/myapp
+RewriteBase /yii-boilerplate
+
+
+# if a directory or a file exists, use it directly
+
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+
+RewriteCond %{REQUEST_FILENAME} -d
+
+
+
+# otherwise forward it to index.php 
+
+RewriteRule ^.*$ - [NC,L]
+
+RewriteRule ^.*$ index.php [NC,L]
