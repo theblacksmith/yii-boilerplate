@@ -1,0 +1,6 @@
+[submodule "protected/extensions/yiihppie"]
+	path = protected/extensions/yiihppie
+	url = https://github.com/theblacksmith/Yiihppie.git
+[submodule "protected/extensions/giix-haml"]
+	path = protected/extensions/giix-haml
+	url = https://github.com/theblacksmith/giix-haml.git

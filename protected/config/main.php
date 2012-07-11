@@ -31,7 +31,6 @@ return array(
 			  'ext.giix-haml.core', // giix generators
 			),
 		),
-		
 	),
 
 	// application components
@@ -41,6 +40,13 @@ return array(
 			'allowAutoLogin'=>true,
 		),
 		// uncomment the following to enable URLs in path-format
+		
+		'viewRenderer'=>array(
+			'class'=>'ext.yiihppie.Yiihppie',
+			'fileExtension'=>'.haml',
+			// delete options below in production
+			
+		),
 		
 		'urlManager'=>array(
 			'urlFormat'=>'path',
