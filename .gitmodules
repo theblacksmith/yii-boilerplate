@@ -1,0 +1,3 @@
+[submodule "protected/widgets/bootstrap"]
+	path = protected/widgets/bootstrap
+	url = https://github.com/theblacksmith/YiiBootstrap.git
