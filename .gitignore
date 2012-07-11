@@ -1,3 +1,10 @@
+# Yii
+assets/
+protected/runtime/
+
+# OSX
 .DS_Store
+
+# Eclipse, Zend Studio and Aptana
 .buildpath
 .project
