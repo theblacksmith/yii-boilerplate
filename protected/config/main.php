@@ -17,7 +17,6 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
-		'ext.giix-haml.components.*', // giix components
 		'application.widgets.bootstrap.*',
 	),
 
@@ -29,9 +28,6 @@ return array(
 			'password'=>'sbrubles',
 		 	// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
-			'generatorPaths'=>array(
-			  'ext.giix-haml.core', // giix generators
-			),
 		),
 		
 	),
