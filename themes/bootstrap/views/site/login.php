@@ -10,38 +10,27 @@ $this->breadcrumbs=array(
 <p>Please fill out the following form with your login credentials:</p>
 
 <div class="form">
-<?php $form=$this->beginWidget('EBootstrapActiveForm', array(
-	'id'=>'login-form',
-)); ?>
+<?php 
+/** @var BootActiveForm $form **/
+$form = $this->beginWidget('bootstrap.widgets.BootActiveForm', array(
+    'id'=>'verticalForm',
+	'type' => 'vertical',
+    'htmlOptions'=>array('class'=>'well'),
+));
+?>
+	
+	<?php echo $form->textFieldRow($model, 'username', array('class'=>'span3')); ?>
+	<?php echo $form->passwordFieldRow($model, 'password', array(
+			'class' => 'span3',
+			'hint' => 'Hint: You may login with demo/demo or admin/admin.')); ?>
+	<?php echo $form->checkboxRow($model, 'rememberMe'); ?>
 
-	<?php echo $form->beginControlGroup($model, 'name'); ?>
-		<?php echo $form->labelEx($model,'username'); ?>
-		<?php echo $form->beginControls(); ?>
-			<?php echo $form->textFieldPrepend($model,'username','@'); ?>
-			<?php echo $form->error($model,'username'); ?>
-		<?php echo $form->endControls(); ?>
-	<?php echo $form->endControlGroup(); ?>
-
-	<?php echo $form->beginControlGroup($model, 'name'); ?>
-		<?php echo $form->labelEx($model,'password'); ?>
-		<?php echo $form->beginControls(); ?>
-			<?php echo $form->passwordFieldPrepend($model,'password','#'); ?>
-			<?php echo $form->error($model,'password'); ?>
-			<?php echo $form->helpBlock('Hint: You may login with <tt>demo/demo</tt> or <tt>admin/admin</tt>.'); ?>
-		<?php echo $form->endControls(); ?>
-	<?php echo $form->endControlGroup(); ?>
-
-	<?php echo $form->beginControlGroup($model, 'name'); ?>
-		<?php echo $form->label($model,'rememberMe'); ?>
-		<?php echo $form->beginControls(); ?>
-			<?php echo $form->checkBox($model,'rememberMe'); ?>
-			<?php echo $form->error($model,'rememberMe'); ?>
-		<?php echo $form->endControls(); ?>
-	<?php echo $form->endControlGroup(); ?>
-
-	<?php echo $form->beginActions(); ?>
-		<?php echo $form->submitButton('Login'); ?>
-	<?php echo $form->endActions(); ?>
+	<?php $this->widget('bootstrap.widgets.BootButton', 
+			array(
+				'buttonType'=>'submit',
+				'label'=>'Submit',
+				'type'=>'primary'
+			)); ?>
 
 <?php $this->endWidget(); ?>
 </div><!-- form -->
