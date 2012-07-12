@@ -1,0 +1,22 @@
+- $this->beginContent('//layouts/main')
+
+.span-19
+	#main
+		= $content
+	/ main
+
+.span-5.last
+	#sidebar
+	:php
+		$this->beginWidget('zii.widgets.CPortlet', array(
+			'title'=>'Operations',
+		));
+		$this->widget('zii.widgets.CMenu', array(
+			'items'=>$this->menu,
+			'htmlOptions'=>array('class'=>'operations'),
+		));
+		$this->endWidget();
+
+	/ sidebar
+	
+- $this->endContent()

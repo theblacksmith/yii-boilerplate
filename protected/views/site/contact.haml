@@ -1,0 +1,71 @@
+:php
+  $this->pageTitle=Yii::app()->name . ' - Contact Us';
+  $this->breadcrumbs=array(
+    'Contact',
+  );
+
+%h1 Contact Us
+
+- if(Yii::app()->user->hasFlash('contact')):
+
+  .flash-success
+    = Yii::app()->user->getFlash('contact')
+
+- else:
+
+  %p
+    If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
+  
+  .form
+  
+    :php
+      $form=$this->beginWidget('CActiveForm', array(
+      	'id'=>'contact-form',
+      	'enableClientValidation'=>true,
+      	'clientOptions'=>array(
+      		'validateOnSubmit'=>true,
+      	),
+      ))
+    
+  	%p.note Fields with <span class="required">*</span> are required.
+  
+  	= $form->errorSummary($model)
+    
+  	.row
+  		= $form->labelEx($model,'name')
+  		= $form->textField($model,'name')
+  		= $form->error($model,'name')
+  
+  	.row
+  		= $form->labelEx($model,'email')
+  		= $form->textField($model,'email')
+  		= $form->error($model,'email')
+  
+  	.row
+  		= $form->labelEx($model,'subject')
+  		= $form->textField($model,'subject',array('size'=>60,'maxlength'=>128))
+  		= $form->error($model,'subject')
+  
+  	.row
+  		= $form->labelEx($model,'body')
+  		= $form->textArea($model,'body',array('rows'=>6, 'cols'=>50))
+  		= $form->error($model,'body')
+  
+  	- if(CCaptcha::checkRequirements()):
+    	.row
+    		= $form->labelEx($model,'verifyCode')
+    		%div
+    		  - $this->widget('CCaptcha')
+    		  = $form->textField($model,'verifyCode')
+    		
+    		.hint 
+    		  Please enter the letters as they are shown in the image above.<br/>
+    		  Letters are not case-sensitive.
+    		= $form->error($model,'verifyCode')
+     
+  	.row.buttons
+  		= CHtml::submitButton('Submit')
+    
+    - $this->endWidget()
+  
+  / form
