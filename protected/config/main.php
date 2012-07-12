@@ -17,7 +17,8 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
-		'ext.bootstap.components.*'
+		'ext.bootstap.components.*',
+		'ext.giix-haml.components.*', // giix components
 	),
 
 	'modules'=>array(
@@ -29,6 +30,7 @@ return array(
 			'ipFilters'=>array('127.0.0.1','::1'),
 			'generatorPaths'=>array(
 				'bootstrap.gii',
+			  'ext.giix-haml.core', // giix generators
 			),
 		),
 		
@@ -41,8 +43,20 @@ return array(
 			'allowAutoLogin'=>true,
 		),
 		
+		'viewRenderer'=>array(
+			'class'=>'ext.yiihppie.Yiihppie',
+			'fileExtension'=>'.haml',
+		),
+		
 		'bootstrap'=>array(
 			'class'=>'ext.bootstrap.components.Bootstrap',
+		),
+		
+		'viewRenderer'=>array(
+			'class'=>'ext.yiihppie.Yiihppie',
+			'fileExtension'=>'.haml',
+			// delete options below in production
+			
 		),
 		
 		// enables URLs in path-format
