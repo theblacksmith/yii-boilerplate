@@ -1,3 +1,6 @@
+This project isn't maintained anymore
+===============
+
 Yii Boilerplate
 ===============
 <big>**based on Yii v1.1.10**</big>
